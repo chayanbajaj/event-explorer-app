@@ -1,0 +1,52 @@
+[
+  {
+    "id": "1",
+    "name": "Tech Innovators Conference",
+    "date": "2025-06-10",
+    "location": "San Francisco, CA",
+    "thumbnail": "https://octaneoc.org/wp-content/uploads/2023/11/Octane-TIF2023-FastPitch-06.jpg",
+    "image": "https://octaneoc.org/wp-content/uploads/2023/11/Octane-TIF2023-FastPitch-06.jpg",
+    "description": "Join industry leaders as they discuss the future of technology and innovation.",
+    "organizer": "FutureTech"
+  },
+  {
+    "id": "2",
+    "name": "Jazz in the Park",
+    "date": "2025-06-15",
+    "location": "New Orleans, LA",
+    "thumbnail": "https://yourope.org/wp-content/uploads/2023/04/jazz-in-the-park-3.jpg",
+    "image": "https://yourope.org/wp-content/uploads/2023/04/jazz-in-the-park-3.jpg",
+    "description": "An evening of smooth jazz under the stars with top local and national artists.",
+    "organizer": "City of New Orleans"
+  },
+  {
+    "id": "3",
+    "name": "Startup Pitch Night",
+    "date": "2025-06-20",
+    "location": "Austin, TX",
+    "thumbnail": "https://www.eu-startups.com/wp-content/uploads/2023/03/Pitch-Night-VU-2.png",
+    "image": "https://www.eu-startups.com/wp-content/uploads/2023/03/Pitch-Night-VU-2.png",
+    "description": "Watch the most exciting new startups pitch to a panel of investors and experts.",
+    "organizer": "VentureLaunch"
+  },
+  {
+    "id": "4",
+    "name": "Art & Wine Festival",
+    "date": "2025-06-25",
+    "location": "Napa Valley, CA",
+    "thumbnail": "https://coronadochamber.com/wp-content/uploads/2022/04/wide-CAWF-logo-1920-%C3%97-600-px.png",
+    "image": "https://coronadochamber.com/wp-content/uploads/2022/04/wide-CAWF-logo-1920-%C3%97-600-px.png",
+    "description": "Explore art exhibitions and wine tastings in the heart of Napa Valley.",
+    "organizer": "Napa Valley Arts Council"
+  },
+  {
+    "id": "5",
+    "name": "Summer Coding Bootcamp",
+    "date": "2025-07-01",
+    "location": "Remote",
+    "thumbnail": "https://media.geeksforgeeks.org/wp-content/uploads/20230927184335/Best-Free-Coding-Bootcamps.png",
+    "image": "https://media.geeksforgeeks.org/wp-content/uploads/20230927184335/Best-Free-Coding-Bootcamps.png",
+    "description": "A 2-week immersive coding bootcamp focused on modern web and app development.",
+    "organizer": "CodeLab Academy"
+  }
+]

@@ -1,11 +1,12 @@
 import EventCard from "@/components/EventCard";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
-import { sGetAllEvents, sGetIsLoadingEvents } from "@/store/events/selectors";
-import { fetchEventsData } from "@/store/events/thunks";
+import {
+  sGetInterestedEvents,
+  sGetIsLoadingEvents,
+} from "@/store/events/selectors";
 import { IEvent } from "@/types/event";
-import { UnknownAction } from "@reduxjs/toolkit";
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback } from "react";
 import {
   ActivityIndicator,
   FlatList,
@@ -13,24 +14,18 @@ import {
   StyleSheet,
 } from "react-native";
 import { moderateScale } from "react-native-size-matters";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
-const EventExplorer = () => {
-  const allEvents = useSelector(sGetAllEvents);
-  const dispatch = useDispatch();
+const InterestedEvents = () => {
+  const interestedEvents = useSelector(sGetInterestedEvents);
   const isLoadingEvents = useSelector(sGetIsLoadingEvents);
-
-  useEffect(() => {
-    if (allEvents.length === 0)
-      dispatch(fetchEventsData() as unknown as UnknownAction);
-  }, [allEvents, dispatch]);
 
   const renderItem = useCallback(
     ({ item }: ListRenderItemInfo<IEvent>) => <EventCard event={item} />,
     [],
   );
 
-  if (isLoadingEvents) {
+  if (isLoadingEvents ) {
     return (
       <ThemedView style={[styles.container, styles.loader]}>
         <ActivityIndicator size="large" />
@@ -42,12 +37,12 @@ const EventExplorer = () => {
     <ThemedView style={styles.container}>
       <FlatList
         contentContainerStyle={styles.contentContainerStyle}
-        data={allEvents}
+        data={interestedEvents}
         renderItem={renderItem}
         showsVerticalScrollIndicator={false}
         ListEmptyComponent={() => (
           <ThemedView style={styles.listEmptyComponent}>
-            <ThemedText type="defaultSemiBold">No Events</ThemedText>
+            <ThemedText type="defaultSemiBold">No Interested Events</ThemedText>
           </ThemedView>
         )}
       />
@@ -70,4 +65,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default EventExplorer;
+export default InterestedEvents;
