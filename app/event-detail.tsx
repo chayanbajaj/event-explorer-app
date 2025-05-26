@@ -1,8 +1,9 @@
-import ThemedButton from "@/components/ThemedButton";
-import { ThemedText } from "@/components/ThemedText";
-import { ThemedView } from "@/components/ThemedView";
-import { IconSymbol } from "@/components/ui/IconSymbol.ios";
-import { Colors } from "@/constants/Colors";
+import { IconSymbol } from "@/components/common/IconSymbol.ios";
+import ThemedButton from "@/components/common/ThemedButton";
+import { ThemedText } from "@/components/common/ThemedText";
+import { ThemedView } from "@/components/common/ThemedView";
+import { Colors } from "@/constants/colors";
+import { DEFAULT_BOX_SHADOW } from "@/constants/common";
 import { sGetEventById } from "@/store/events/selectors";
 import {
   markEventAsInterested,
@@ -89,19 +90,10 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   header: {
+    ...DEFAULT_BOX_SHADOW,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.18,
-    shadowRadius: 1.0,
-
-    elevation: 1,
     padding: moderateScale(16),
   },
   flex1: {

@@ -4,8 +4,8 @@ import { useRouter } from "expo-router";
 import React from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
 import { moderateScale } from "react-native-size-matters";
-import { ThemedText } from "./ThemedText";
-import { ThemedView } from "./ThemedView";
+import { ThemedText } from "./common/ThemedText";
+import { ThemedView } from "./common/ThemedView";
 
 interface IProps {
   event: IEvent;

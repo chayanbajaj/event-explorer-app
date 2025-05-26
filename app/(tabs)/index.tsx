@@ -1,23 +1,13 @@
-import EventCard from "@/components/EventCard";
-import { ThemedText } from "@/components/ThemedText";
-import { ThemedView } from "@/components/ThemedView";
+import EventListView from "@/components/EventListView";
 import { sGetAllEvents, sGetIsLoadingEvents } from "@/store/events/selectors";
 import { fetchEventsData } from "@/store/events/thunks";
-import { IEvent } from "@/types/event";
 import { UnknownAction } from "@reduxjs/toolkit";
-import React, { useCallback, useEffect } from "react";
-import {
-  ActivityIndicator,
-  FlatList,
-  ListRenderItemInfo,
-  StyleSheet,
-} from "react-native";
-import { moderateScale } from "react-native-size-matters";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 const EventExplorer = () => {
-  const allEvents = useSelector(sGetAllEvents);
   const dispatch = useDispatch();
+  const allEvents = useSelector(sGetAllEvents);
   const isLoadingEvents = useSelector(sGetIsLoadingEvents);
 
   useEffect(() => {
@@ -25,49 +15,10 @@ const EventExplorer = () => {
       dispatch(fetchEventsData() as unknown as UnknownAction);
   }, [allEvents, dispatch]);
 
-  const renderItem = useCallback(
-    ({ item }: ListRenderItemInfo<IEvent>) => <EventCard event={item} />,
-    [],
-  );
 
-  if (isLoadingEvents) {
-    return (
-      <ThemedView style={[styles.container, styles.loader]}>
-        <ActivityIndicator size="large" />
-      </ThemedView>
-    );
-  }
 
-  return (
-    <ThemedView style={styles.container}>
-      <FlatList
-        contentContainerStyle={styles.contentContainerStyle}
-        data={allEvents}
-        renderItem={renderItem}
-        showsVerticalScrollIndicator={false}
-        ListEmptyComponent={() => (
-          <ThemedView style={styles.listEmptyComponent}>
-            <ThemedText type="defaultSemiBold">No Events</ThemedText>
-          </ThemedView>
-        )}
-      />
-    </ThemedView>
-  );
+  return <EventListView data={allEvents} isLoadingEvents={isLoadingEvents} noDataText="No Events" />
 };
 
-const styles = StyleSheet.create({
-  container: { flex: 1, padding: moderateScale(16) },
-  contentContainerStyle: {
-    rowGap: moderateScale(20),
-  },
-  listEmptyComponent: {
-    flexDirection: "row",
-    justifyContent: "center",
-  },
-  loader: {
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
 
 export default EventExplorer;

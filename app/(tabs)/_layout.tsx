@@ -1,6 +1,7 @@
-import { ThemedText } from "@/components/ThemedText";
-import { ThemedView } from "@/components/ThemedView";
-import { IconSymbol } from "@/components/ui/IconSymbol.ios";
+import { IconSymbol } from "@/components/common/IconSymbol.ios";
+import { ThemedText } from "@/components/common/ThemedText";
+import { ThemedView } from "@/components/common/ThemedView";
+import { DEFAULT_BOX_SHADOW } from "@/constants/common";
 import { Tabs } from "expo-router";
 import React from "react";
 import { StyleSheet, useColorScheme } from "react-native";
@@ -58,16 +59,8 @@ const TabLayout = () => {
 
 const styles = StyleSheet.create({
   header: {
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.18,
-    shadowRadius: 1.0,
-
-    elevation: 1,
-    padding: 16,
+    ...DEFAULT_BOX_SHADOW,
+    padding: moderateScale(16),
   },
 });
 

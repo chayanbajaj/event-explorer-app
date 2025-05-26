@@ -1,11 +1,11 @@
-import { Colors } from "@/constants/Colors";
+import { Colors } from "@/constants/colors";
 import React from "react";
 import {
-    Pressable,
-    PressableProps,
-    StyleSheet,
-    Text,
-    useColorScheme,
+  Pressable,
+  PressableProps,
+  StyleSheet,
+  Text,
+  useColorScheme,
 } from "react-native";
 import { moderateScale } from "react-native-size-matters";
 
